@@ -1,0 +1,23 @@
+{
+    "initial_records": 11055,
+    "final_records": 11055,
+    "records_removed": 0,
+    "missing_values_found": 0,
+    "exact_duplicates_count": 5206,
+    "exact_duplicates_percentage": 47.09,
+    "feature_duplicates_count": 5270,
+    "conflicting_feature_combinations": 64,
+    "conflicting_rows_count": 357,
+    "target_mapping": {
+        "-1": "Phishing (Binary 0)",
+        "1": "Legitimate (Binary 1)"
+    },
+    "class_distribution_raw": {
+        "1": 6157,
+        "-1": 4898
+    },
+    "class_distribution_percentage": {
+        "1": 55.69,
+        "-1": 44.31
+    }
+}
