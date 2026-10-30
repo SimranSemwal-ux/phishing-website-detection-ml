@@ -1,0 +1,5 @@
+Model,Accuracy,Precision (Phishing),Recall (Phishing),F1-Score (Phishing),ROC-AUC,True_Positives (TP),False_Positives (FP),True_Negatives (TN),False_Negatives (FN),Best_Hyperparameters
+Majority Class Baseline,0.5568,0.0,0.0,0.0,0.5,0,0,1231,980,None (Baseline)
+Logistic Regression,0.9276,0.9343,0.9,0.9168,0.9784,882,62,1169,98,"{'C': 1.0, 'solver': 'lbfgs'}"
+Decision Tree,0.9701,0.9731,0.9592,0.9661,0.9778,940,26,1205,40,"{'criterion': 'entropy', 'max_depth': None, 'min_samples_split': 2}"
+Random Forest,0.9751,0.9793,0.9643,0.9717,0.9964,945,20,1211,35,"{'max_depth': None, 'max_features': 'sqrt', 'min_samples_split': 2, 'n_estimators': 100}"
