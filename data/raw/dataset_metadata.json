@@ -1,0 +1,43 @@
+{
+    "name": "Phishing Websites",
+    "uci_id": 327,
+    "doi": "10.24432/C51W2X",
+    "num_instances": 11055,
+    "num_features": 30,
+    "target_col": [
+        "result"
+    ],
+    "feature_names": [
+        "having_ip_address",
+        "url_length",
+        "shortining_service",
+        "having_at_symbol",
+        "double_slash_redirecting",
+        "prefix_suffix",
+        "having_sub_domain",
+        "sslfinal_state",
+        "domain_registration_length",
+        "favicon",
+        "port",
+        "https_token",
+        "request_url",
+        "url_of_anchor",
+        "links_in_tags",
+        "sfh",
+        "submitting_to_email",
+        "abnormal_url",
+        "redirect",
+        "on_mouseover",
+        "rightclick",
+        "popupwindow",
+        "iframe",
+        "age_of_domain",
+        "dnsrecord",
+        "web_traffic",
+        "page_rank",
+        "google_index",
+        "links_pointing_to_page",
+        "statistical_report"
+    ],
+    "citation": "Mohammad, R. (2015). Phishing Websites. UCI Machine Learning Repository. https://doi.org/10.24432/C51W2X."
+}
