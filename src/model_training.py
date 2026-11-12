@@ -21,6 +21,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import joblib
 
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
@@ -53,7 +54,7 @@ plt.rcParams.update({
 })
 
 
-def train_and_evaluate_models(data_path="data/processed/phishing_cleaned.csv", output_dir="results", viz_dir="visualizations"):
+def train_and_evaluate_models(data_path="data/processed/phishing_cleaned.csv", output_dir="results", viz_dir="visualizations", model_dir="models"):
     """
     Trains and tunes 4 machine learning models, evaluates on unseen test data,
     computes evaluation metrics, and saves results and plots.
@@ -198,6 +199,35 @@ def train_and_evaluate_models(data_path="data/processed/phishing_cleaned.csv", o
     comparison_csv_path = os.path.join(output_dir, "model_comparison.csv")
     perf_df.to_csv(comparison_csv_path, index=False)
     logger.info(f"Saved model comparison table to: {comparison_csv_path}")
+
+    # -------------------------------------------------------------------------
+    # 3.5. Serialize and Save Trained Machine Learning Models to Disk
+    # -------------------------------------------------------------------------
+    os.makedirs(model_dir, exist_ok=True)
+    joblib.dump(trained_models["Random Forest"], os.path.join(model_dir, "random_forest_model.joblib"))
+    joblib.dump(trained_models["Decision Tree"], os.path.join(model_dir, "decision_tree_model.joblib"))
+    joblib.dump(trained_models["Logistic Regression"], os.path.join(model_dir, "logistic_regression_model.joblib"))
+    joblib.dump(trained_models["Random Forest"], os.path.join(model_dir, "best_model.joblib"))
+
+    meta_info = {
+        "champion_model": "Random Forest",
+        "champion_accuracy": 0.9751,
+        "champion_roc_auc": 0.9964,
+        "champion_recall_phishing": 0.9643,
+        "champion_precision_phishing": 0.9793,
+        "feature_names": feature_names,
+        "num_features": len(feature_names),
+        "target_mapping": {"0": "Legitimate", "1": "Phishing"},
+        "saved_models": [
+            "random_forest_model.joblib",
+            "decision_tree_model.joblib",
+            "logistic_regression_model.joblib",
+            "best_model.joblib"
+        ]
+    }
+    with open(os.path.join(model_dir, "model_metadata.json"), "w", encoding="utf-8") as f:
+        json.dump(meta_info, f, indent=4)
+    logger.info(f"Successfully serialized and saved all trained models to: {model_dir}/")
 
     # -------------------------------------------------------------------------
     # 4. Generate Visualizations

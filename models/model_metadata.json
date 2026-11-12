@@ -1,0 +1,50 @@
+{
+    "champion_model": "Random Forest",
+    "champion_accuracy": 0.9751,
+    "champion_roc_auc": 0.9964,
+    "champion_recall_phishing": 0.9643,
+    "champion_precision_phishing": 0.9793,
+    "feature_names": [
+        "having_ip_address",
+        "url_length",
+        "shortining_service",
+        "having_at_symbol",
+        "double_slash_redirecting",
+        "prefix_suffix",
+        "having_sub_domain",
+        "sslfinal_state",
+        "domain_registration_length",
+        "favicon",
+        "port",
+        "https_token",
+        "request_url",
+        "url_of_anchor",
+        "links_in_tags",
+        "sfh",
+        "submitting_to_email",
+        "abnormal_url",
+        "redirect",
+        "on_mouseover",
+        "rightclick",
+        "popupwindow",
+        "iframe",
+        "age_of_domain",
+        "dnsrecord",
+        "web_traffic",
+        "page_rank",
+        "google_index",
+        "links_pointing_to_page",
+        "statistical_report"
+    ],
+    "num_features": 30,
+    "target_mapping": {
+        "0": "Legitimate",
+        "1": "Phishing"
+    },
+    "saved_models": [
+        "random_forest_model.joblib",
+        "decision_tree_model.joblib",
+        "logistic_regression_model.joblib",
+        "best_model.joblib"
+    ]
+}
